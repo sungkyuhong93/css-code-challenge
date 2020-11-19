@@ -1,0 +1,35 @@
+body {
+  background-color: #7a86cb;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+button {
+  background-image: linear-gradient(to bottom, #7a86cb 50%, #616ba2 50%);
+  background-size: 100% 200%;
+  color: #fff;
+  font-weight: 600;
+  padding: 15px 0;
+  width: 100px;
+  border: 2px solid #000;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  outline: none;
+  transition: background-position 0.2s;
+  font-family: "Barlow", sans-serif;
+  margin-top: 5rem;
+  margin-right: 10px;
+}
+
+button:hover {
+  background-position: 0 -100%;
+}
+
+button:focus {
+  background: #4c547f;
+  border: 3px solid #6849e3;
+  color: #6849e3;
+  font-weight: 800;
+}

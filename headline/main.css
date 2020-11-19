@@ -1,0 +1,61 @@
+body {
+  background-color: #7a86cb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+
+@font-face {
+  font-family: merri;
+  src: url(./Merriweather-Regular.ttf);
+}
+
+.text-wrapper {
+  position: relative;
+  margin: auto;
+}
+
+.text-wrapper h1:before {
+  content: "";
+  display: block;
+  border-top: 1px solid #6849e3;
+  width: 0;
+  position: absolute;
+  left: 0;
+
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
+}
+
+.text-wrapper h1:after {
+  content: "";
+  display: block;
+  border-bottom: 1px solid#6849e3;
+  width: 0;
+  position: absolute;
+  right: 0;
+
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
+}
+
+.text-wrapper h1 {
+  color: #6849e3;
+  text-align: center;
+  letter-spacing: 3px;
+  transition: all 1s;
+  font-family: merri;
+  cursor: pointer;
+  font-size: 80px;
+}
+
+.text-wrapper h1:hover {
+  color: #fff;
+  letter-spacing: 0px;
+}
+
+.text-wrapper h1:hover:before,
+h1:hover:after {
+  width: 100%;
+}
