@@ -1,35 +1,162 @@
 body {
-  background-color: #7a86cb;
+  background: #7a86cb;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-button {
-  background-image: linear-gradient(to bottom, #7a86cb 50%, #616ba2 50%);
+.vv-btn:not(:first-child) {
+  margin-left: 32px;
+}
+
+.vv-btn {
+  box-shadow: 0px 4px 20px #616ba2;
+  border: 5px solid #7480c2;
+  background-image: linear-gradient(to bottom, #7a86cb 50%, #7480c2 50%);
   background-size: 100% 200%;
-  color: #fff;
-  font-weight: 600;
-  padding: 15px 0;
-  width: 100px;
-  border: 2px solid #000;
   border-radius: 50px;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  outline: none;
-  transition: background-position 0.2s;
   font-family: "Barlow", sans-serif;
-  margin-top: 5rem;
-  margin-right: 10px;
+  font-weight: 800;
+  color: #e6e7f2;
+  letter-spacing: 1px;
+  position: relative;
+
+  width: 200px;
+  height: 80px;
 }
 
-button:hover {
-  background-position: 0 -100%;
+.vv-btn:before {
+  content: "";
+  position: absolute;
+  top: -7.52px;
+  left: -7.52px;
+  right: -7.52px;
+  bottom: -7.8px;
+  background: #41486d;
+  z-index: -1;
+  border-radius: 50px;
 }
 
-button:focus {
-  background: #4c547f;
+.vv-btn:hover:not(:focus):before {
+  background: #616ba2;
+}
+
+.vv-btn:hover:not(:focus) {
+  border-color: 1px solid rgba(116, 128, 130, 0.1);
+  box-shadow: 0px 4px 20px #616ba2;
+}
+
+.vv-btn:not(:focus):after {
+  content: "CLICK";
+  padding-top: 27.5px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: linear-gradient(to top, #7480c2, #616ba2);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  border-radius: 50px;
+}
+
+.vv-btn:hover:not(:focus):after {
+  opacity: 1;
+}
+
+.vv-btn:focus {
+  background: #383e5e;
   border: 3px solid #6849e3;
   color: #6849e3;
+  outline: none;
+  font-size: 0;
+  transition: border 0.2s ease-in-out, box-shadow 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+  box-shadow: none;
+}
+
+.vv-btn:focus:before {
+  display: none;
+}
+
+.vv-btn:focus:after {
+  font-size: 13px;
   font-weight: 800;
+  content: "clicked!";
+  border-radius: 50px;
+}
+
+.new-btns {
+  position: absolute;
+  bottom: 150px;
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+.sk-btn {
+  background-color: transparent;
+  color: #777;
+  text-transform: uppercase;
+  padding: 15px 40px;
+  outline: none;
+  transition: all 0.2s;
+  cursor: pointer;
+  position: relative;
+  animation: moveInBottom 0.4s ease-out 0.4s;
+  animation-fill-mode: backwards;
+  border: none;
+  color: #fff;
+  box-shadow: 0 0 40px 40px #000 inset, 0 0 0 0 #000;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-family: "Barlow", sans-serif;
+}
+
+.sk-btn:not(:first-child) {
+  margin-left: 50px;
+}
+
+.sk-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 10px 20px rgba(0, 0, 0, 0.2) inset, 0 0 10px 4px #000;
+  color: #000;
+  background-color: #fff;
+}
+
+.sk-btn:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  color: #000;
+}
+
+.sk-btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+  background-color: #fff;
+}
+
+.sk-btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
 }
